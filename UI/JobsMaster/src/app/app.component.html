@@ -1,0 +1,105 @@
+<nz-layout class="layout">
+  <nz-sider class="menu-sidebar"
+          nzCollapsible
+          nzWidth="256px"
+          nzBreakpoint="md"
+          [(nzCollapsed)]="isCollapsed"
+          [nzTrigger]="null">
+    <div class="sidebar-logo">
+        <a href="/">
+        <img src="../assets/JobsMaster.png" alt="logo">
+        <h1></h1>
+        </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <!--
+          <li nz-submenu nzOpen nzTitle="Home" nzIcon="dashboard">
+          <ul>
+              <li nz-menu-item nzMatchRouter>
+              <a routerLink="/welcome">Welcome</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+              <a>My Dashboard</a>
+              </li>
+          </ul>
+          </li>
+        -->
+        <li nz-submenu nzOpen nzTitle="Schedule" nzIcon="calendar">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/dailyplanner']" [skipLocationChange]="true">Daily Planner</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+            <a routerLink="/apptracker" [skipLocationChange]="true">Application Tracker</a>
+            </li>
+        </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Courses" nzIcon="play-square">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+            <a routerLink="/mycourses" [skipLocationChange]="true">My Courses</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+            <a routerLink="/allcourses" [skipLocationChange]="true">All Courses</a>
+            </li>
+        </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Practice" nzIcon="code">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+            <a routerLink="/coding" [skipLocationChange]="true">Coding</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+            <a routerLink="/mock" [skipLocationChange]="true">Mock Interviews</a>
+            </li>
+        </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Job Search" nzIcon="google">
+          <ul>
+              <li nz-menu-item nzMatchRouter>
+              <a routerLink="/fulltime" [skipLocationChange]="true">Full time</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+              <a routerLink="/internships" [skipLocationChange]="true">Internships</a>
+              </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Chat" nzIcon="wechat">
+          <ul>
+              <li nz-menu-item nzMatchRouter>
+              <a routerLink="/chat" [skipLocationChange]="true">Community Chat</a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+  </nz-sider>
+  <nz-layout class="right-layout">
+    <nz-header>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <div class="logout">
+            <button nz-button nzType="primary" (click)="contact()" class="contact">Contact Us</button>
+            <button nz-button nzType="primary" (click)="logout()" nzDanger *ngIf="isLoggedIn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+          <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout> 
+
+<nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      nzPlacement="right"
+      nzTitle="Contact Us on LinkedIn"
+      (nzOnClose)="close()"
+    >
+      <ng-container *nzDrawerContent>
+        <app-contact></app-contact>
+      </ng-container>
+    </nz-drawer>

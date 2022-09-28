@@ -1,0 +1,5 @@
+cron:
+  - description:
+    url: /tasks/dailyemail
+    schedule: every day 13:00
+    target: tasks

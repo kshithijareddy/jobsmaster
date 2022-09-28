@@ -1,0 +1,9 @@
+.loader {
+    padding-top: 10%;
+}
+.loadtext {
+    padding-left: 20px;
+    font-size: 50px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}

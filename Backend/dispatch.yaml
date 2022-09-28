@@ -1,0 +1,13 @@
+dispatch:
+
+- url: "jobsmaster.uc.r.appspot.com/"
+  service: default
+
+- url: "*/chat*"
+  service: chat
+
+- url: "*/api*"
+  service: api
+
+- url: "*/tasks*"
+  service: tasks

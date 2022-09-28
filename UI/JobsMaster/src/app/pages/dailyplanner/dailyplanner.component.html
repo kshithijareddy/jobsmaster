@@ -1,0 +1,42 @@
+<!--<nz-empty
+    nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+    [nzNotFoundContent]="contentTpl"
+    [nzNotFoundFooter]="footerTpl"
+>
+    <ng-template #contentTpl>
+    <span>
+        No Schedule Found
+    </span>
+    </ng-template>
+    <ng-template #footerTpl>
+    <button nz-button nzType="primary">Add Now</button>
+    </ng-template>
+</nz-empty> -->
+
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add New Task for {{selectedDate}}" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <form nz-form [formGroup]="validateForm">
+        <nz-form-item>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+            <textarea formControlName="task" nz-input rows="3" placeholder="Enter any task"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+        </form>
+    </ng-container>
+    <div *nzModalFooter> 
+        <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+        <button nz-button nzType="primary" (click)="handleOk()" >Add Task</button>
+    </div>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isDeleteVisible" nzTitle="Delete Task" (nzOnCancel)="handleDeleteCancel()" (nzOnOk)="handleDeleteOk()">
+    <ng-container *nzModalContent>
+        <p>Are you sure you want to delete the task "{{selectedTask}}"</p>
+    </ng-container>
+    <div *nzModalFooter> 
+        <button nz-button nzType="default" (click)="handleDeleteCancel()">Cancel</button>
+        <button nz-button nzType="primary" (click)="handleDeleteOk()" nzDanger>Delete Task</button>
+    </div>
+</nz-modal>

@@ -1,0 +1,21 @@
+<div nz-row nzJustify="center" *ngIf="!jobsLoaded" class="loader">
+    <div nz-col>
+        <div nz-row nzJustify="center">
+            <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+        </div>
+        <div nz-row>
+            <h3 class="loadtext">Loading Internships...</h3>
+        </div>
+    </div>
+</div>
+<div nz-row nzJustify="start" *ngIf="jobsLoaded">
+    <div nz-col nzSpan="8" *ngFor="let intern of internships; let i=index;">
+        <nz-card style="width:80%;" nzTitle="{{intern.company}}">
+            <p>Location: {{intern.location}}</p>
+            <p>Title: {{intern.title}}</p>
+            <div nz-row nzJustify="center">
+                <button nz-button nzType="primary" (click)="apply(intern.link)">Apply</button>
+            </div>
+        </nz-card>
+    </div>
+</div>

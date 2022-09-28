@@ -1,0 +1,37 @@
+<div *ngIf="questionsLoaded">
+    <h2>Easy Questions</h2>
+    <nz-collapse>
+        <nz-collapse-panel
+            *ngFor="let question of easyQuestions"
+            [nzHeader]="question.question"
+        >
+            <p>{{question.description}}</p>
+            <button nz-button nzType="primary" (click)="goToLC(question.url)">Leetcode Link</button>
+        </nz-collapse-panel>
+    </nz-collapse>
+
+    <br>
+    <h2>Medium Questions</h2>
+    <nz-collapse>
+        <nz-collapse-panel
+            *ngFor="let question of mediumQuestions"
+            [nzHeader]="question.question"
+        >
+            <p>{{question.description}}</p>
+            <button nz-button nzType="primary" (click)="goToLC(question.url)">Leetcode Link</button>
+        </nz-collapse-panel>
+    </nz-collapse>
+
+    <br>
+    <h2>Hard Questions</h2>
+    <nz-collapse>
+        <nz-collapse-panel
+            *ngFor="let question of hardQuestions"
+            [nzHeader]="question.question"
+        >
+            <p>{{question.description}}</p>
+            <button nz-button nzType="primary" (click)="goToLC(question.url)">Leetcode Link</button>
+        </nz-collapse-panel>
+    </nz-collapse>
+</div>
+<br><br><br>

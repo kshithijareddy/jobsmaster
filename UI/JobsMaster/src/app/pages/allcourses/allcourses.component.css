@@ -1,0 +1,21 @@
+.buy-button {
+    padding-top: 20px;
+    text-align: center;
+}
+.loader {
+    padding-top: 10%;
+}
+.loadtext {
+    padding-left: 20px;
+    font-size: 50px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+.courseImage {
+    width: 150px;
+    height: 150px;
+    padding-top: 10px;
+} 
+.allcourses {
+    height: 100%;
+}

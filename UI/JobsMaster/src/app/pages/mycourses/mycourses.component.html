@@ -1,0 +1,39 @@
+<div nz-row nzJustify="center" *ngIf="!coursesLoaded" class="loader">
+    <div nz-col>
+        <div nz-row nzJustify="center">
+            <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+        </div>
+        <div nz-row>
+            <h3 class="loadtext">Loading courses...</h3>
+        </div>
+    </div>
+</div>
+<div *ngIf="coursesLoaded">
+    <div nz-row nzJustify="center" *ngIf="myCourses.length == 0">
+        <div nz-col>
+            <div nz-row nzJustify="center">
+                <h3 class="loadtext">No courses found</h3>
+            </div>
+        </div>
+    </div>
+    <div nz-row nzJustify="start">
+        <div nz-col nzSpan="6" *ngFor="let course of myCourses; let i=index;">
+            <nz-card style="width:80%;" [nzCover]="coverTemplate">
+            <nz-card-meta
+                class="title"
+                nzTitle={{course.title}}
+            ></nz-card-meta>
+            <div class="go-button">
+                <button nz-button nzType="primary" (click)="goToCourse(i)">Go to Course</button>
+                <br><br>
+                <button nz-button nzType="primary" (click)="deleteCourse(i)" nzDanger>Drop Course</button>
+            </div>
+            </nz-card>
+            <ng-template #coverTemplate>
+                <div nz-row nzJustify="center" class="image">
+                    <img alt="example" src="{{course.image}}" class="courseImage"/>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
